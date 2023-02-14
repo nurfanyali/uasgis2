@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <title>Program GoogleMaps</title>
+  <head>
+    <style>
+      #map {
+        height: 600px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>UAS GIS II</h1>
+    <h4>Nama  :Nurfany </h4>
+    <h4>NIM   :20200302028</h4>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var RumahSaya = {
+          lat: -0.9082620742985901, 
+          lng: 119.86977956350772,
+        };
+        var waypoint1 = { lat: -0.9067576875567032,lng: 119.87052819203723};
+        var waypoint2 = { lat: -0.9039688521064105,lng: 119.86984934303398};
+        var waypoint3 = { lat: -0.902144859738843, lng: 119.86958488453567};
+        var waypoint4 = { lat: -0.9008842365979268,lng: 119.8690715379377};
+        var waypoint5 = { lat: -0.8999274766521714,lng: 119.86867318096506};
+        var waypoint6 = { lat: -0.9002436587086893,lng: 119.8706608598941};
+        var waypoint7 = { lat: -0.9004038036686073,lng: 119.87231999963807};
+        var Tamankota = { lat: -0.899500424369946,lng: 119.87294833438523};
+        var map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 15,
+          center: RumahSaya,
+        });
+        var marker1 = new google.maps.Marker({
+          position: RumahSaya,
+          map: map
+        });
+        var marker2 = new google.maps.Marker({ position: Tamankota, map: map });
+
+        var polyline = new google.maps.Polyline({
+          path: [
+            RumahSaya,
+            waypoint1,
+            waypoint2,
+            waypoint3,
+            waypoint4,
+            waypoint5,
+            waypoint6,
+            waypoint7,
+            Tamankota,
+          ],
+          strokeColor: "pink",
+          strokeOpacity: 5,
+          strokeWeight: 3.5,
+        });
+
+        polyline.setMap(map);
+      }
+    </script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlv-a8iwH4Sl3I-2I2ub9FohmYSKG-zfw&callback=initMap"
+    ></script>
+  </body>
+</html>
